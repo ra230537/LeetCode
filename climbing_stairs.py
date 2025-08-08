@@ -5,8 +5,6 @@ class Solution:
         response = []
             
         for i in range(0, n):
-            # print(i)
-            # print(response)
             if (i == 0):
                 response.append(1)
             elif(i==1):

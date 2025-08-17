@@ -1,40 +1,25 @@
-'''
-j <- i
-i <- N - j
-Para cada camada 0 -> n//2
-para cada posicao_inicial (0 -> n-1)
-Para cada 4 trocas
-'''
 
 
 class Solution:
-    def new_position(self, i, j, n):
-        if (i < n//2):
-            new_j = n - i - 1
-        else:
-            pass
-        return (j, new_j)
+    def translate(self, matrix, m, n):
+        for i in range(m):
+            for j in range(i, n):
+                matrix[i][j], matrix[j][i] = matrix[j][i], matrix[i][j]
+        return matrix
+    def reverse(self, matrix,m, n):
+        for i in range(m):
+            for j in range(n//2):
+                matrix[i][j], matrix[i][n-j-1] = matrix[i][n-1-j], matrix[i][j]
+        return matrix
     def rotate(self, matrix: list[list[int]]) -> None:
         n = len(matrix)
-        for layer in range(n//2):
-            j = layer
-            for start_position in range(n-1):
-                i = layer + start_position
-                current = matrix[i][j]
-                for _ in range(4):
-                    new_i, new_j = self.new_position(i, j, n)
-                    print(new_i, new_j)
-                    temp = matrix[new_i][new_j]
-                    matrix[new_i][new_j] = current
-                    current = temp
-                    i, j = new_i, new_j
+        m = len(matrix[0])
+        matrix = self.translate(matrix, m, n)
+        matrix = self.reverse(matrix, m, n)
         return matrix
     def print_matrix(self, matrix):
         for i in range(len(matrix)):
             print(matrix[i])
-        """
-        Do not return anything, modify matrix in-place instead.
-        """
 
 matrix = Solution().rotate(matrix = [[5,1,9,11],[2,4,8,10],[13,3,6,7],[15,14,12,16]])
 Solution().print_matrix(matrix)

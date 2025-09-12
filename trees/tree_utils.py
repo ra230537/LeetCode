@@ -59,3 +59,15 @@ def create_tree(nums: List[Optional[int]]) -> Optional[TreeNode]:
 
         # 8. Ao final do loop, a árvore está toda conectada. Retornamos a raiz.
         return root
+
+def print_tree(p: Optional[TreeNode]):
+    output = []
+    lista = deque([p])
+    while lista:
+        node = lista.popleft()
+        if node is None:
+            continue
+        output.append(node.val)
+        lista.append(node.left)
+        lista.append(node.right)
+    print(output)

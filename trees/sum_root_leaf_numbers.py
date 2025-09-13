@@ -4,6 +4,10 @@
 #         self.val = val
 #         self.left = left
 #         self.right = right
+'''
+TODO: Busca em profundidade
+
+'''
 from typing import List, Optional
 from tree_utils import TreeNode, create_tree
 class Solution:

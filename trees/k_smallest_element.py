@@ -54,6 +54,10 @@ class Solution:
     respectivamente
     Pre-order: return current_node + left_subtree + right_subtree
     pos-order: return left_subtree + right_subtree + current_node
+    UTILIDADE: 
+        Utilize a Pré-Ordem (Raiz -> Esquerda -> Direita) para copiar ou clonar a estrutura de uma árvore, 
+        Em-Ordem (Esquerda -> Raiz -> Direita) para obter os valores de uma Árvore Binária de Busca em sequência estritamente crescente,
+        Pós-Ordem (Esquerda -> Direita -> Raiz) para deletar nós ou calcular subproblemas (como a altura da árvore) onde os filhos devem ser processados antes do pai.
     '''
     
 root = create_tree([5,3,6,2,4,None,None,1])
